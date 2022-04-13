@@ -8,8 +8,8 @@
    $firstName  = $_POST['firstName'];
    $lastName   = $_POST['lastName'];
    $phone      = $_POST['phone'];
-   $city       = $_POST['city'];
    $street     = $_POST['street'];
+   $city       = $_POST['city'];
    $state      = $_POST['state'];
    $zipcode    = $_POST['zipcode'];
    $type       = $_POST['type'];
@@ -18,21 +18,22 @@
    //gigMe variable is gigMe database
    $gigMe = $mongo->gigMe;
    //Customers variable is Customers collection
-   $Customers = $gigMe->Customers;
+   $Entertainers = $gigMe->Entertainers;
 
    //insert document into Customers collection
-   $insertDocument = $Customers->insertOne([
+   $insertDocument = $Entertainers->insertOne([
       'username' => $username,
       'password' => $password,
       'email' => $email,
       'firstName' => $firstName,
       'lastName' => $lastName,
       'phone' => $phone,
-      'city' => $city,
       'street' => $street,
+      'city' => $city,
       'state' => $state,
       'zipcode' => $zipcode,
       'type' => $type,
+      'bio' => "",
    ]);
 
    printf("Inserted %d document(s)\n", $insertDocument->getInsertedCount());
