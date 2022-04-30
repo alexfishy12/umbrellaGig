@@ -7,15 +7,15 @@
     //gigMe variable is gigMe database
     $gigMe = $mongo->gigMe;
     //Customers variable is Customers collection
-    $Venues = $gigMe->Venues;
+    $Entertainers = $gigMe->Entertainers;
 
-    $result = $Venues->find();
+    $result = $Entertainers->find();
 
-    $venuesArray = array();
-    foreach($result as $venue)
+    $entertainersArray = array();
+    foreach($result as $entertainer)
     {
-        $venuesArray[] = $venue;
+        $entertainersArray[] = $entertainer;
     }
 
-    echo json_encode($venuesArray);
+    echo json_encode($entertainersArray);
 ?>

@@ -4,9 +4,10 @@
   <title>Registration Form</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="bootstrap-5.1.3-dist\css\bootstrap.min.css">
+  <script src="jquery-3.6.0.min.js"></script>
+  <script src="bootstrap-5.1.3-dist\js\bootstrap.min.js"></script>
+  <script src="createEntertainer.js"></script>
 </head>
 <body>
 <div class="container">
@@ -82,21 +83,41 @@
 }
 
     ?>
+
+
     <div class="col-lg-offset-2 col-lg-10">
     <h2 >Registration form</h2>
     <p class="text-danger">* Required field</p>
       <!-- registration form -->
-    <form method="post" class="form-horizontal" action="<?=htmlspecialchars($_SERVER['PHP_SELF']);?>">
-      <!-- name field -->
+    <form id="register" method="post" class="form-horizontal" action="<?=htmlspecialchars($_SERVER['PHP_SELF']);?>">
+      <!-- username field -->
         <div class="form-group">
-            <label class="control-label col-lg-2" for="name"><span class="text-danger">*</span> Name:</label>
+            <label class="control-label col-lg-2" for="username"><span class="text-danger">*</span> Username:</label>
             <div class="col-lg-4">
-                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="<?=$name;?>" required>
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
             </div>
             <?="<p class='text-danger'>$nameErr</p>";?>
         </div>
       
-      <!-- email field -->
+        <!-- password field -->
+        <div class="form-group">
+            <label class="control-label col-lg-2" for="password"><span class="text-danger">*</span> Password:</label>
+            <div class="col-lg-4">
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+            </div>
+            <?="<p class='text-danger'></p>";?>
+        </div>
+
+         <!-- password confirm field -->
+         <div class="form-group">
+            <label class="control-label col-lg-2" for="confm-pwd"><span class="text-danger">*</span> Confirm Password:</label>
+            <div class="col-lg-4">
+                <input type="password" class="form-control" id="pwd" placeholder="Confirm password" name="pwdc" value="<?=$pwdc;?>" required>
+            </div>
+            <?="<p class='text-danger'>$pwdcErr</p>";?>
+        </div>
+
+        <!-- email field -->
         <div class="form-group">
             <label class="control-label col-lg-2" for="email"><span class="text-danger">*</span> Email:</label>
             <div class="col-lg-4">
@@ -104,24 +125,78 @@
             </div>
             <?="<div class='text-danger'>$emailErr</div>";?>
         </div>
-      
-      <!-- password field -->
+        
+        <!-- first name field -->
         <div class="form-group">
-            <label class="control-label col-lg-2" for="pwd"><span class="text-danger">*</span> Password:</label>
-            <div class="col-lg-4">
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" value="<?=$pwd;?>" required>
-            </div>
-            <?="<p class='text-danger'>$pwdErr</p>";?>
-        </div>
-      
-      <!-- password confirm field -->
+           <label class="control-label col-lg-2" for="firstName"><span class="text-danger">*</span> First Name:</label>
+           <div class="col-lg-4">
+               <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" required>
+           </div>
+           <?="<p class='text-danger'></p>";?>
+       </div>
+
+        <!-- last name field -->
         <div class="form-group">
-            <label class="control-label col-lg-2" for="confm-pwd"><span class="text-danger">*</span> Confirm Password:</label>
-            <div class="col-lg-4">
-                <input type="password" class="form-control" id="pwd" placeholder="Confirm password" name="pwdc" value="<?=$pwdc;?>" required>
-            </div>
-            <?="<p class='text-danger'>$pwdcErr</p>";?>
-        </div>
+           <label class="control-label col-lg-2" for="lastName"><span class="text-danger">*</span> Last Name:</label>
+           <div class="col-lg-4">
+               <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" required>
+           </div>
+           <?="<p class='text-danger'></p>";?>
+       </div>
+
+       <!-- phone field -->
+       <div class="form-group">
+           <label class="control-label col-lg-2" for="phone"><span class="text-danger">*</span> Phone Number:</label>
+           <div class="col-lg-4">
+               <input type="text" class="form-control" id="phone" placeholder="##########" name="phone" required>
+           </div>
+           <?="<p class='text-danger'></p>";?>
+       </div>
+
+       <!-- street field -->
+       <div class="form-group">
+           <label class="control-label col-lg-2" for="street"><span class="text-danger">*</span> Street:</label>
+           <div class="col-lg-4">
+               <input type="text" class="form-control" id="street" placeholder="1000 Morris Ave" name="street" required>
+           </div>
+           <?="<p class='text-danger'></p>";?>
+       </div>
+
+       <!-- city field -->
+       <div class="form-group">
+           <label class="control-label col-lg-2" for="city"><span class="text-danger">*</span> City:</label>
+           <div class="col-lg-4">
+               <input type="text" class="form-control" id="city" placeholder="Union" name="city" required>
+           </div>
+           <?="<p class='text-danger'></p>";?>
+       </div>
+
+       <!-- state field -->
+       <div class="form-group">
+           <label class="control-label col-lg-2" for="state"><span class="text-danger">*</span> State:</label>
+           <div class="col-lg-4">
+               <input type="text" class="form-control" id="state" placeholder="NJ" name="state" required>
+           </div>
+           <?="<p class='text-danger'></p>";?>
+       </div>
+
+       <!-- zipcode field -->
+       <div class="form-group">
+           <label class="control-label col-lg-2" for="zipcode"><span class="text-danger">*</span> Zipcode:</label>
+           <div class="col-lg-4">
+               <input type="text" class="form-control" id="zipcode" placeholder="#####" name="zipcode" required>
+           </div>
+           <?="<p class='text-danger'></p>";?>
+       </div>
+
+       <!-- type field -->
+       <div class="form-group">
+           <label class="control-label col-lg-2" for="type"><span class="text-danger">*</span> Type of Entertainment:</label>
+           <div class="col-lg-4">
+               <input type="text" class="form-control" id="type" placeholder="Musician" name="type" required>
+           </div>
+           <?="<p class='text-danger'></p>";?>
+       </div>
       
       <!-- gender field -->
         <div class="form-group">
@@ -167,7 +242,6 @@
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-4">
                 <button type="submit" name="register" class="btn btn-success">Submit</button>
-                <button type="reset" class="btn btn-default">Reset</button>
             </div>
         </div>
     </form>
